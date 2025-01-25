@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Pacifico');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+}
+
+#scene-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#snowfall-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+
+  @keyframes moveCloud {
+    0% {
+      top: -100px;
+      left: 50%;
+    }
+    100% {
+      top: 50%;
+      left: -200px;
+    }
+  }
+ 
+
+@keyframes santa-bounce {
+    0%, 100% {
+        transform: translateY(0); /* Default position */
+    }
+    50% {
+        transform: translateY(-20px); /* Moves the image slightly upwards */
+    }
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#merry-christmas {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+}
+
+text {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 4000;
+    animation: stroke-draw 4s ease-out forwards, fill-color 2s 4s ease-out forwards;
+}
+
+@keyframes stroke-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill-color {
+    to {
+        fill: #ff4444;
+    }
+}
+.snowman {
+    position: absolute;
+    bottom: 17%;
+    left: 5%;
+    width: 180px; /* Reduced size */
+    height: 180px; /* Reduced size */
+    z-index: 5;
+}
+
+.snowman * {
+    position: absolute;
+}
+
+.snowman .bottom {
+    top: 88%;
+    left: -7%;
+    background: white;
+    width: 100%; /* Adjusted to maintain proportion */
+    height: 100%; /* Adjusted to maintain proportion */
+    border-radius: 50%;
+}
+
+.snowman .head {
+    top: 15%;
+    left: 5%;
+    background: white;
+    width: 80%; /* Adjusted to maintain proportion */
+    height: 80%; /* Adjusted to maintain proportion */
+    border-radius: 50%;
+}
+
+.snowman .right-eye {
+    top: 45%;
+    left: 62%;
+    background: black;
+    width: 12%; /* Adjusted size */
+    height: 12%; /* Adjusted size */
+    border-radius: 50%;
+}
+
+.snowman .left-eye {
+    top: 45%;
+    left: 21%;
+    background: black;
+    width: 12%; /* Adjusted size */
+    height: 12%; /* Adjusted size */
+    border-radius: 50%;
+}
+
+
+.snowman .snowman-mouth-1,
+.snowman .snowman-mouth-2,
+.snowman .snowman-mouth-3,
+.snowman .snowman-mouth-4,
+.snowman .snowman-mouth-5 {
+    top: 72%;
+    left: 40%;
+    background: black;
+    width: 15%; /* Reduced size */
+    height: 4%; /* Reduced size */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.snowman .snowman-button-1,
+.snowman .snowman-button-2,
+.snowman .snowman-button-3
+{
+    top: 150%;
+    left: 45%;
+    background: black;
+    width: 6%; /* Reduced size */
+    height: 6%; /* Reduced size */
+    border-radius: 50%;
+    z-index: 1;
+}
+.snowman .snowman-button-4 {
+    top: 120%;
+    left: 45%;
+    background: black;
+    width: 6%; /* Reduced size */
+    height: 6%; /* Reduced size */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.snowman .left-arm {
+    top: 108%;
+    left: -39%;
+    background: #4c2900;
+    width: 40%; /* Reduced size */
+    height: 6%; /* Reduced size */
+    border-radius: 50%;
+    transform: rotate(20deg);
+}
+
+.snowman .left-mitten-1 {
+    top: 95%;
+    left: -45%;
+    background: beige;
+    width: 20%; /* Reduced size */
+    height: 17%; /* Reduced size */
+    border-radius: 50% 36% 36% 50%;
+    transform: rotate(20deg);
+    z-index: 1;
+}
+
+.snowman .left-mitten-2 {
+    top: 92%;
+    left: -34%;
+    background: beige;
+    width: 11%; /* Reduced size */
+    height: 7%; /* Reduced size */
+    border-radius: 50%;
+    transform: rotate(60deg);
+}
+
+.snowman .right-arm {
+    top: 107%;
+    left: 84%;
+    background: #4c2900;
+    width: 54%; /* Reduced size */
+    height: 7%; /* Reduced size */
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+.snowman .right-mitten-1 {
+    top: 93%;
+    left: 122%;
+    background: beige;
+    width: 20%; /* Reduced size */
+    height: 17%; /* Reduced size */
+    border-radius: 36% 50% 50% 36%;
+    transform: rotate(-20deg);
+    z-index: 1;
+}
+
+.snowman .right-mitten-2 {
+    top: 91%;
+    left: 123%;
+    background: beige;
+    width: 11%; /* Reduced size */
+    height: 7%; /* Reduced size */
+    border-radius: 50%;
+    transform: rotate(-60deg);
+}
+
+.snowman .hat-1 {
+    top: -24%;
+    left: 33%;
+    background: #1e1ba1;
+    width: 50%; /* Reduced size */
+    height: 40%; /* Reduced size */
+    border-radius: 15%;
+    transform: rotate(-80deg);
+    z-index: 1;
+}
+
+.snowman .hat-2 {
+    top: -8%;
+    left: 52%;
+    background: navy;
+    width: 6%; /* Reduced size */
+    height: 55%; /* Reduced size */
+    border-radius: 20%;
+    transform: rotate(-80deg);
+    z-index: 1;
+}
+
+.snowman .hat-3 {
+    top: -8%;
+    left: 55%;
+    background: #791919;
+    width: 4%; /* Reduced size */
+    height: 40%; /* Reduced size */
+    transform: rotate(-80deg);
+    z-index: 5;
+}
+
+.snowman .scarf-1 {
+    top: 89%;
+    left: 17%;
+    background: #c21a1a;
+    width: 60%; /* Reduced size */
+    height: 12%; /* Reduced size */
+    border-radius: 10%;
+    z-index: 1;
+}
+
+.snowman .scarf-2 {
+    top: 89%;
+    left: 63%;
+    background: #ac0000;
+    width: 13%; /* Reduced size */
+    height: 45%; /* Reduced size */
+    border-radius: 10%;
+}
+
+.snowman .scarf-3 {
+    top: 89%;
+    left: 47%;
+    background: #950101;
+    width: 13%; /* Reduced size */
+    height: 25%; /* Reduced size */
+    border-radius: 10%;
+}
+
+.snowman .wind {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes hat {
+    0% {
+        top: -80%;
+        left: 35%;
+        transform: rotate(5deg);
+    }
+    25% {
+        top: -88%;
+        left: 25%;
+        transform: rotate(-5deg);
+    }
+    50% {
+        top: -80%;
+        left: 35%;
+        transform: rotate(5deg);
+    }
+    75% {
+        top: -88%;
+        left: 45%;
+        transform: rotate(-5deg);
+    }
+    100% {
+        top: -80%;
+        left: 35%;
+        transform: rotate(5deg);
+    }
+}
+
+.merry-christmas text {
+    font-size: 3rem; /* Reduced font size */
+}
+
+.snowflake {
+    position: absolute;
+    width: 8px; /* Reduced size */
+    height: 8px; /* Reduced size */
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: snow 3s infinite;
+}
+
+@keyframes snow {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+.santa {
+    width:20vw;
+    min-width:175px;
+    z-index: 600;
+    cursor: pointer;
+    -webkit-animation: FlyingSanta 38s infinite linear;
+    -moz-animation: FlyingSanta 38s infinite linear;
+    -ms-animation: FlyingSanta 38s infinite linear;
+    -o-animation: FlyingSanta 38s infinite linear;
+    animation: FlyingSanta 38s infinite linear;
+    bottom: 0%;
+    left: 0%;
+    position: absolute;
+  }
+  @keyframes FlyingSanta {
+    25% {
+      bottom: 80%;
+      left: 85%;
+      transform: rotateY(0deg);
+    }
+    26% {
+      transform: rotateY(180deg);
+    }
+    50% {
+      bottom: 60%;
+      left: 0%;
+      transform: rotateY(180deg);
+    }
+    51% {
+      transform: rotateY(0deg);
+    }
+    75% {
+      bottom: 40%;
+      left: 85%;
+      transform: rotateY(0deg);
+    }
+    76% {
+      bottom: 40%;
+      left: 85%;
+      transform: rotateY(180deg);
+    }
+    99% {
+      transform: rotateY(180deg);
+    }
+  }
+  #bottom-right-image {
+    position: absolute;
+    bottom: 2.5px; /* Adjust as needed */
+    right: 0px; /* Adjust as needed */
+    width: 200px; /* Adjust size as needed */
+    height: 300px; /* Maintain aspect ratio */
+    z-index: 1; /* Ensure it's on top of other elements */
+}
+
+  
